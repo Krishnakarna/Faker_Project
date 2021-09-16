@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>
+        Employee Faker
+    </title>
+    <style>
+        body{
+            padding:20px;
+        }
+        th{
+            background-color: chartreuse;
+            color:red;
+            padding: 20px;
+        }
+        td{
+            background-color: aqua;
+        }
+        td:hover,th:hover{
+            background-color: coral;
+            color: white;
+        }
+    </style>
+</head>
+<body bgcolor="#a9a9a9">
+<div class="container">
+    {% if employee_list %}
+        <div class="table-respansive">
+            <table style="background-color: chartreuse">
+                <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Role</th>
+                    <th>Salary</th>
+                    <th>Mobile</th>
+                </tr>
+                </thead>
+                {% for employee in employee_list %}
+                    <tbody>
+                    <tr>
+                        <td>{{ employee.first_name }}</td>
+                        <td>{{ employee.last_name }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.city }}</td>
+                        <td>{{ employee.role }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>{{ employee.mobile }}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+        </div>
+        <hr style="background-color: yellow;padding: 10px;">
+        <h1>Total Employees:{{ employee_count }}</h1>
+        <h1>Total Managers:{{ manager_count }}</h1>
+        </div>
+    {% else %}
+        <h1>Employee Is Not There</h1>
+    {% endif %}
+
+</body>
+</html>
